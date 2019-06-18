@@ -1,0 +1,62 @@
+<div style="text-align:center">
+  <nav class="navbar navbar-dark navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand">{{ pageTitle }}</a>
+    <ul class="nav nav-pills">
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          routerLinkActive="active"
+          [routerLink]="['/welcome']"
+          >Home</a
+        >
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          routerLinkActive="active"
+          [routerLink]="['/products']"
+          >Product List</a
+        >
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#!">Link</a>
+      </li>
+    </ul>
+
+    <!-- <ul class="nav nav-pills">
+      <li>
+        <a
+          class="nav-link"
+          routerLinkActive="active"
+          [routerLink]="['/welcome']"
+          >Home</a
+        >
+      </li>
+      <li>
+        <a
+          class="nav-link"
+          routerLinkActive="active"
+          [routerLink]="['/products']"
+          >Product List</a
+        >
+      </li>
+    </ul> -->
+  </nav>
+  <div class="container">
+    <!-- <router-outlet></router-outlet> -->
+    <!-- <app-welcome></app-welcome> -->
+    <router-outlet></router-outlet>
+  </div>
+  <!-- Footer -->
+  <footer class="footer footer-expand-lg footer-light bg-light">
+    <!-- Copyright -->
+    <div class="text-center">Developed by:</div>
+    <div class="text-center"><h5>Ajaysanu</h5></div>
+    <div class="text-center">@Ajaysanu4Blog</div>
+    <div class="text-center">
+      <a href="http://www.bit.ly/Ajaysanu4Blog">www.bit.ly/Ajaysanu4Blog</a>
+    </div>
+    <!-- Copyright -->
+  </footer>
+  <!-- Footer -->
+</div>
