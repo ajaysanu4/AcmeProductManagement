@@ -6,14 +6,16 @@ import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { ProductComponent } from "./product.component";
 import { RouterModule } from "@angular/router";
+import { HttpClientModule } from "@angular/common/http";
 
 @NgModule({
   declarations: [ProductComponent],
   imports: [
     BrowserModule,
+    HttpClientModule,
     CommonModule,
     ProductDetailsModule,
-    AppRoutingModule,
+    AppRoutingModule
   ],
   exports: [ProductComponent],
   bootstrap: [ProductComponent]
