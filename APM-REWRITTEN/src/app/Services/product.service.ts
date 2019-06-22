@@ -8,7 +8,8 @@ import { HttpClient, HttpErrorResponse } from "@angular/common/http";
   providedIn: "root"
 })
 export class ProductService {
-  private productUrl = "API/ProductList/products.json";
+  // private productUrl = "api/products/products.json";
+  private productUrl = "api/products/products.json";
   constructor(private http: HttpClient) {}
 
   getProducts(): Observable<IProduct[]> {

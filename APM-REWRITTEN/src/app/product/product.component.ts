@@ -1,6 +1,6 @@
-import { ProductService } from "./Services/product.service";
+import { ProductService } from "../Services/product.service";
 import { Component, OnInit } from "@angular/core";
-import { IProduct } from "./Entity/product";
+import { IProduct } from "../Entity/product";
 
 @Component({
   selector: "app-product",
@@ -10,10 +10,12 @@ import { IProduct } from "./Entity/product";
 export class ProductComponent implements OnInit {
   //pageTitle: string = "Product List";
   pageTitle: string = "Welcome";
+  showImage: boolean = false;
+  imageWidth: number = 50;
+  imageMargin: number = 2;
   errorMessage: any;
 
-  constructor(private productService: ProductService) {}
-
+  // setter getter for filter operation
   _listFilter: string = "";
   get listFilter(): string {
     return this._listFilter;
@@ -25,9 +27,12 @@ export class ProductComponent implements OnInit {
       : this.products;
   }
 
+  constructor(private productService: ProductService) {}
+
   filteredProducts: IProduct[] = [];
   products: IProduct[] = [];
 
+  //perform filter method
   performFilter(filterBy: string): IProduct[] {
     filterBy = filterBy.toLocaleLowerCase();
     return this.products.filter(
@@ -35,6 +40,14 @@ export class ProductComponent implements OnInit {
         product.productName.toLocaleLowerCase().indexOf(filterBy) !== -1
     );
   }
+
+  onRatingClicked = (message: string) => {
+    this.pageTitle = "Product List: " + message;
+  };
+
+  toggleImage = () => {
+    this.showImage = !this.showImage;
+  };
   ngOnInit(): void {
     this.productService.getProducts().subscribe(
       products => {

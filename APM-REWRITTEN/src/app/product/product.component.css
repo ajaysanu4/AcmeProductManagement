@@ -1,0 +1,3 @@
+.use-pointer-events .form-control-feedback {
+  pointer-events: visiblePainted;
+}

@@ -2,20 +2,21 @@
   <div class="card-header">
     {{ pageTitle }}
   </div>
-  <div class="card-body">
-    <div class="row">
+  <div class="card-body use-pointer-events">
+    <div class="row form-group has-success has-feedback">
       <div class="col-md-2">Filter by:</div>
       <div class="col-md-4">
-        <input type="text" />
+        <input type="text" class="form-control" [(ngModel)]="listFilter" />
+        <span class="glyphicon glyphicon-ok form-control-feedback"></span>
       </div>
     </div>
-    <div class="row">
+    <div class="row" *ngIf="listFilter">
       <div class="col-md-6">
         <h4>Filtered by: {{ listFilter }}</h4>
       </div>
     </div>
     <div class="table-responsive table-striped table-hover">
-      <table class="table">
+      <table class="table" *ngIf="products && products.length">
         <thead>
           <tr>
             <th>
@@ -50,8 +51,13 @@
               {{ product.productCode }}
             </td>
             <td>{{ product.releaseDate }}</td>
-            <td>{{ product.price }}</td>
-            <td></td>
+            <td>{{ product.price | currency: "USD":"symbol":"1.2-2" }}</td>
+            <td>
+              <app-shared
+                [rating]="product.starRating"
+                (ratingClicked)="onRatingClicked($event)"
+              ></app-shared>
+            </td>
           </tr>
         </tbody>
       </table>
